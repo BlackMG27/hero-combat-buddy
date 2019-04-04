@@ -8,7 +8,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
@@ -36,7 +35,7 @@
                 <div class="input-field col s12">
 
                     <h5>1. How well can you handle Stress?</h5>
-                    <select id="q1">
+                    <select id="q1" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: I Can't </option>
                         <option value="2"> 2</option>
@@ -48,7 +47,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>2. How well can you drop what you're doing and get into action?</h5>
-                    <select id="q2">
+                    <select id="q2" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: NO WAY!</option>
                         <option value="2"> 2</option>
@@ -60,7 +59,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>3. How are your combat skills?</h5>
-                    <select id="q3">
+                    <select id="q3" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: Noodle at Best</option>
                         <option value="2"> 2</option>
@@ -71,7 +70,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>4. How well can you trust someone?</h5>
-                    <select id="q4">
+                    <select id="q4" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: NO!</option>
                         <option value="2"> 2</option>
@@ -83,7 +82,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>5. How well can you wield a weapon?</h5>
-                    <select id="q5">
+                    <select id="q5" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: Not Gonna Try!</option>
                         <option value="2"> 2</option>
@@ -95,7 +94,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>6. How well can you fake intimacy?</h5>
-                    <select id="q6">
+                    <select id="q6" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: Nope!</option>
                         <option value="2"> 2</option>
@@ -108,7 +107,7 @@
 
                 <div class="input-field col s12">
                     <h5>7. How well can you analyze your surroundings?</h5>
-                    <select id="q7">
+                    <select id="q7" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: Can't Tell You A from B</option>
                         <option value="2"> 2</option>
@@ -120,7 +119,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>8. Would you say you have encyclopedia knowledge?</h5>
-                    <select id="q8">
+                    <select id="q8" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: No, Not Really!</option>
                         <option value="2"> 2</option>
@@ -132,7 +131,7 @@
                 </div>
                 <div class="input-field col s12">
                     <h5>9. Can you thrive under pressure / keep focused?</h5>
-                    <select id="q9">
+                    <select id="q9" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: NO! </option>
                         <option value="2"> 2</option>
@@ -145,7 +144,7 @@
                 <div class="input-field col s12">
                     <h5>10. How well can you converse with someone and get info on them without them knowing about it?
                     </h5>
-                    <select id="q10">
+                    <select id="q10" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: I Have No Direction</option>
                         <option value="2"> 2</option>
@@ -159,6 +158,15 @@
                     <i class="material-icons right">send</i>
                 </button>
             </form>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Oh No!</h4>
+                    <p>Please Fill Out the Form!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
         </div>
     </section>
     <footer class="footer">
@@ -171,13 +179,18 @@
 
     <script>
         $(document).ready(function () {
+            //get the selects to work
             $('select').formSelect();
+            //button click function
             $('button').on('click', function (e) {
                 e.preventDefault();
-                //validate the form
+                //validates the form
                 function validateForm() {
                     let formValid = true;
-                    if ($('.input-field').val() === '') {
+                    if ($('.validate').val() === '') {
+                        formValid = false;
+                    }
+                    if ($('.choice-value').val() === '') {
                         formValid = false;
                     }
                     return formValid;
@@ -185,26 +198,41 @@
 
                 //if validate form
 
-                //pass the data to an object
-                let newFriend = {
-                    name: $('#name').val().trim(),
-                    photo: $('#photo-link').val().trim(),
-                    scores: [
-                        $('#q1').val(),
-                        $('#q2').val(),
-                        $('#q3').val(),
-                        $('#q4').val(),
-                        $('#q5').val(),
-                        $('#q6').val(),
-                        $('#q7').val(),
-                        $('#q8').val(),
-                        $('#q9').val(),
-                        $('#q10').val()
-                    ]
+
+                if (validateForm()) {
+                    //pass the data to an object
+                    let newFriend = {
+                        name: $('#name').val().trim(),
+                        photo: $('#photo-link').val().trim(),
+                        scores: [
+                            $('#q1').val(),
+                            $('#q2').val(),
+                            $('#q3').val(),
+                            $('#q4').val(),
+                            $('#q5').val(),
+                            $('#q6').val(),
+                            $('#q7').val(),
+                            $('#q8').val(),
+                            $('#q9').val(),
+                            $('#q10').val()
+                        ]
+                    }
+                    console.log(newFriend);
+                    //object that will go into database
+                    let newFriendData = {
+                        name: newFriend.name,
+                        photo: newFriend.photo,
+                        scores: JSON.stringify(newFriend.scores)
+                    }
+
+                    $.post('/api/friends', newFriendData).then(function (data) {
+                        console.log('Success!');
+                    })
+
+                } else {
+                    $('.modal').modal();
+                    $('#modal1').modal('open');
                 }
-                console.log(newFriend);
-
-
             })
         });
     </script>
