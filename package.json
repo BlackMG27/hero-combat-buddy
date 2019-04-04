@@ -1,0 +1,24 @@
+{
+  "name": "hero-combat-buddy",
+  "version": "1.0.0",
+  "description": "this is a superhero combat buddy take on Friend Finder",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackMG27/hero-combat-buddy.git"
+  },
+  "keywords": [],
+  "author": "Ogechi Ike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlackMG27/hero-combat-buddy/issues"
+  },
+  "homepage": "https://github.com/BlackMG27/hero-combat-buddy#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
