@@ -69,17 +69,21 @@ module.exports = function (app) {
                 return res.json(heroMatch);
             })
         })
-
+        //make the variables for the insert query
         let name = req.body.name;
         let photo = req.body.photo;
         let scores = req.body.scores;
 
+        //make the connection query with query language 
         connection.query(`INSERT INTO heroes SET ?`, {
+            //put the incoming data into the database fields
             name: name,
             photo: photo,
             scores: scores
         }, function (err, data) {
+            //if error, show the error
             if (err) throw err;
+            //shows that the addition was a success
             console.log('Success!');
         })
 
