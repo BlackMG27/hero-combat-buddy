@@ -13,10 +13,12 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
+//---------MAKE THE CONNECTION TO SERVER--------------
+
 
 //----------ROUTES-------------
 require('./app/routes/HTMLRoutes')(app);
-//require('./app/routes/apiRoutes')(app);
+require('./app/routes/apiRoutes')(app);
 
 
 //----------LISTEN TO SERVER----------------

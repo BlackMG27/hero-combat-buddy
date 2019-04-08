@@ -1,0 +1,8 @@
+CREATE DATABASE profiles;
+CREATE TABLE heroes(
+    id INT NOT NULL AUTO_INCREMENT,
+    name NOT NULL VARCHAR(50),
+    photo NOT NULL VARCHAR(255),
+    scores NOT NULL VARCHAR(25),
+    PRIMARY KEY(id)
+)
