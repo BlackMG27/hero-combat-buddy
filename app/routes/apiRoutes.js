@@ -4,9 +4,10 @@ let heroMatch;
 module.exports = function (app) {
     //get route for all profiles post route to add new profiles
     app.get('/api/heroes', function (req, res) {
-        //get all of the database rows
+        //get all of the profiles from the database
         connection.query(`SELECT * FROM heroes`, function (err, data) {
             if (err) throw err;
+            //display all of the data to /api/heroes
             return res.json(data);
         })
 
@@ -14,15 +15,18 @@ module.exports = function (app) {
     app.post('/api/heroes', function (req, res) {
         //check the body
         console.log(req.body)
-
+        //grab the body and the body scores 
         let newFriend = req.body;
         let newFriendScores = req.body.scores.split(',');
+        //set up the variables
         let heroes;
         let leastDifference;
         let indexOfClosestMatch;
         console.log(newFriend);
+        //grab the values from the database
         connection.query(`SELECT * FROM heroes`, function (err, data) {
             if (err) throw err;
+            //store the data into heroes variable
             heroes = data;
             //makes the closest Match by going through each hero's scores and comparing it to the user's scores
             heroes.forEach(function (hero, heroIndex) {
@@ -33,25 +37,35 @@ module.exports = function (app) {
                     //take each number in the array and subtract the newFriendScore by each hero array number
                     return accumulator += Math.abs(newFriendScores[scoreIndex] - value);
                 }, 0)
+                //if the heroIndex is at 0
                 if (heroIndex === 0) {
+                    //make the leastDifference and indexOfClosestMatch = difference and heroIndex
                     leastDifference = difference;
                     indexOfClosestMatch = heroIndex;
+                    //if the difference is less than the leastDifference
                 } else if (difference < leastDifference) {
+                    //set the values to the current index
                     leastDifference = difference;
                     indexOfClosestMatch = heroIndex;
                 }
             })
+            //add one to the indexOfClosestMatch so that it matches the id in the database
             let heroId = indexOfClosestMatch + 1;
+            //set up the database query
             let heroQuery = `SELECT * FROM heroes WHERE id = ${heroId};`;
+            //check the query to make sure it works
             console.log(heroQuery);
             connection.query(heroQuery, function (err, result) {
                 if (err) throw err;
                 console.log(result);
+                //store result in the global variable
                 heroMatch = result;
+                //check to make sure that the data is actually filterable
                 for (ent in result) {
                     console.log(result[ent].name);
                     console.log(result[ent].photo);
                 }
+                //set the response to heroMatch
                 return res.json(heroMatch);
             })
         })
