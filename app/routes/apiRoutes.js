@@ -70,12 +70,19 @@ module.exports = function (app) {
             })
         })
 
+        let name = req.body.name;
+        let photo = req.body.photo;
+        let scores = req.body.scores;
 
+        connection.query(`INSERT INTO heroes SET ?`, {
+            name: name,
+            photo: photo,
+            scores: scores
+        }, function (err, data) {
+            if (err) throw err;
+            console.log('Success!');
+        })
 
     })
-
-
-
-
 
 }
