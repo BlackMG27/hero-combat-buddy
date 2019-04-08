@@ -214,18 +214,20 @@
           e.preventDefault();
           //validates the form
           function validateForm() {
+              //sets the default to true
             let formValid = true;
+            //if the user hasn't put any info
             if ($('.validate').val() === '') {
+                //make it false
               formValid = false;
             }
+            //same with this one 
             if ($('.choice-value').val() === '') {
               formValid = false;
             }
             return formValid;
           }
-
-          //if validate form
-
+          //if validateForm is true
           if (validateForm()) {
             //pass the data to an object
             let newFriend = {
@@ -257,17 +259,21 @@
             };
             //checks to see if the data has been entered
             //console.log(newFriendData);
-
+            //once the match has been made 
             $.post('/api/heroes', newFriendData).then(function(data) {
+                //check to see the data is really there
                 console.log(data);
+                //puts the info into the modal
                 for(i in data){
                   $('#hero-name').text(data[i].name);
                   $('#hero-image').attr('src', data[i].photo);
                 }
+                //makes the modal appear on the page
                 $('.modal').modal();
                 $('#modal2').modal('open');
             });
           } else {
+              //shows the error message
             $('.modal').modal();
             $('#modal1').modal('open');
           }
