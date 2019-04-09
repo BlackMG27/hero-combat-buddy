@@ -114,7 +114,7 @@
                     </select>
                 </div>
                 <div class="input-field col s12">
-                    <h5>8. Would you say you have encyclopedia knowledge?</h5>
+                    <h5>8. Would you say you have encyclopedic knowledge?</h5>
                     <select id="q8" class="choice-value">
                         <option value="" disabled selected>Make Your Choice: </option>
                         <option value="1"> 1: No, Not Really!</option>
@@ -242,7 +242,7 @@
                         for (i in data) {
                             $('#hero-name').text(data[i].name);
                             $('#hero-image').attr('src', data[i].photo);
-                            $('#hero-image').attr('src', data[i].name);
+                            $('#hero-image').attr('alt', data[i].name);
                         }
                         //makes the modal appear on the page
                         $('.modal').modal();
