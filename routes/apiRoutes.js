@@ -1,4 +1,4 @@
-let connection = require('../../config/connection');
+let connection = require('../config/connection');
 let heroMatch;
 
 module.exports = function (app) {
@@ -24,7 +24,7 @@ module.exports = function (app) {
         let indexOfClosestMatch;
         console.log(newFriend);
         //grab the values from the database
-        connection.query(`SELECT * FROM heroes`, function (err, data) {
+        connection.query(`SELECT * FROM heroes;`, function (err, data) {
             if (err) throw err;
             //store the data into heroes variable
             heroes = data;
@@ -75,7 +75,7 @@ module.exports = function (app) {
         let scores = req.body.scores;
 
         //make the connection query with query language 
-        connection.query(`INSERT INTO heroes SET ?`, {
+        connection.query(`INSERT INTO heroes SET ?;`, {
             //put the incoming data into the database fields
             name: name,
             photo: photo,

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin|Revalia');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: 'Libre Franklin', Arial, Helvetica, sans-serif;
+}
+
+h1,
+h3 {
+  font-family: 'Revalia', Impact, Haettenschweiler, 'Arial Narrow Bold',
+    sans-serif;
+}
+
+#title-body {
+  background-image: url('../images/heroes.jpg');
+  background-size: cover;
+}
+
+#title-section {
+  text-align: center;
+  padding: 5% 3% 9% 3%;
+  background-color: #fffeee;
+  margin-top: 4%;
+  -webkit-box-shadow: 10px 10px 23px 19px rgba(20, 19, 20, 1);
+  -moz-box-shadow: 10px 10px 23px 19px rgba(20, 19, 20, 1);
+  box-shadow: 10px 10px 23px 19px rgba(20, 19, 20, 1);
+}
+
+#survey-body {
+  background-color: #eeeddd;
+}
+
+#survey-section {
+  color: #fffeee;
+  background-color: #03223f;
+  padding: 6%;
+}
+
+.modal-content h4 {
+  color: #03223f;
+}
+
+#name,
+#photo-link {
+  color: #fffeee;
+}
+
+button[type='submit'] {
+  width: 100%;
+  height: 60px;
+  font-size: 1.25rem;
+}
+
+.select-dropdown {
+  color: #fffeee;
+}
+
+#title-body .btn {
+  width: 80%;
+  font-size: 1.25rem;
+  height: 60px;
+  padding-top: 15px;
+  margin-top: 2%;
+  transition: 0.25s;
+}
+
+#title-body .btn:hover {
+  -webkit-box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, 0.75);
+  transition: 0.25s;
+}
+
+footer p a {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h5 {
+    font-size: 1.45rem;
+  }
+}

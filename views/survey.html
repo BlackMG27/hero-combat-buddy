@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Survey</title>
+</head>
+
+<body id="survey-body">
+    <section class="container animated fadeInUpBig" id="survey-section">
+        <h1>Survey</h1>
+        <div class="col s12">
+            <form action="POST">
+                <h3>About You</h3>
+                <div class="input-field col s12">
+                    <input placeholder="Enter Your name (Required)" id="name" type="text" class="validate" required />
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="Enter Your Photo Link (Required)" id="photo-link" type="text" class="validate"
+                        required />
+                    <label for="photo-link">Photo Link</label>
+                </div>
+                <h3>Questions</h3>
+                <div class="input-field col s12">
+                    <h5>1. How well can you handle Stress?</h5>
+                    <select id="q1" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: I Can't </option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Totally Relaxed</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>
+                        2. How well can you drop what you're doing and get into action?
+                    </h5>
+                    <select id="q2" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: NO WAY!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: YAS!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>3. How are your combat skills?</h5>
+                    <select id="q3" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: Noodle at Best</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Kickass!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>4. How well can you trust someone?</h5>
+                    <select id="q4" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: NO!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Give Me a Trust Test!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>5. How well can you wield a weapon?</h5>
+                    <select id="q5" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: Not Gonna Try!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: I Will Beat Your Ass!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>6. How well can you fake intimacy?</h5>
+                    <select id="q6" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: Nope!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Totally Down for Love!</option>
+                    </select>
+                </div>
+
+                <div class="input-field col s12">
+                    <h5>7. How well can you analyze your surroundings?</h5>
+                    <select id="q7" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: Can't Tell You A from B</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Move over Sherlock!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>8. Would you say you have encyclopedia knowledge?</h5>
+                    <select id="q8" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: No, Not Really!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Walking Encyclopedia!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>9. Can you thrive under pressure / keep focused?</h5>
+                    <select id="q9" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: HEEELLLLLLP! </option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: I Will Win!</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <h5>
+                        10. How well can you converse with someone and get info on them
+                        without them knowing about it?
+                    </h5>
+                    <select id="q10" class="choice-value">
+                        <option value="" disabled selected>Make Your Choice: </option>
+                        <option value="1"> 1: I Have No Direction!</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option>
+                        <option value="5"> 5: Suck It, James Bond!</option>
+                    </select>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Oh No!</h4>
+                    <p>Please Fill Out the Form!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>Congrats You Got <span id="hero-name"></span>!</h4>
+                    <img id="hero-image">
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/api/heroes">API Survey</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            //get the selects to work
+            $('select').formSelect();
+            //button click function
+            $('button').on('click', function (e) {
+                e.preventDefault();
+                //validates the form
+                function validateForm() {
+                    //sets the default to true
+                    let formValid = true;
+                    //if the user hasn't put any info
+                    if ($('.validate').val() === '') {
+                        //make it false
+                        formValid = false;
+                    }
+                    //same with this one 
+                    if ($('.choice-value').val() === '') {
+                        formValid = false;
+                    }
+                    return formValid;
+                }
+                //if validateForm is true
+                if (validateForm()) {
+                    //pass the data to an object
+                    let newFriend = {
+                        name: $('#name')
+                            .val()
+                            .trim(),
+                        photo: $('#photo-link')
+                            .val()
+                            .trim(),
+                        scores: [
+                            $('#q1').val(),
+                            $('#q2').val(),
+                            $('#q3').val(),
+                            $('#q4').val(),
+                            $('#q5').val(),
+                            $('#q6').val(),
+                            $('#q7').val(),
+                            $('#q8').val(),
+                            $('#q9').val(),
+                            $('#q10').val()
+                        ]
+                    };
+                    console.log(newFriend);
+                    //object that will go into database
+                    let newFriendData = {
+                        name: newFriend.name,
+                        photo: newFriend.photo,
+                        scores: newFriend.scores.toString()
+                    };
+                    //checks to see if the data has been entered
+                    //console.log(newFriendData);
+                    //once the match has been made 
+                    $.post('/api/heroes', newFriendData).then(function (data) {
+                        //check to see the data is really there
+                        console.log(data);
+                        //puts the info into the modal
+                        for (i in data) {
+                            $('#hero-name').text(data[i].name);
+                            $('#hero-image').attr('src', data[i].photo);
+                            $('#hero-image').attr('src', data[i].name);
+                        }
+                        //makes the modal appear on the page
+                        $('.modal').modal();
+                        $('#modal2').modal('open');
+                    });
+                } else {
+                    //shows the error message
+                    $('.modal').modal();
+                    $('#modal1').modal('open');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
