@@ -1,11 +1,11 @@
-let connection = require('../config/connection');
-let heroMatch;
+var connection = require('../config/connection');
+var heroMatch;
 
 module.exports = function (app) {
     //get route for all profiles post route to add new profiles
     app.get('/api/heroes', function (req, res) {
         //get all of the profiles from the database
-        connection.query(`SELECT * FROM heroes`, function (err, data) {
+        connection.query(`SELECT * FROM heroes;`, function (err, data) {
             if (err) throw err;
             //display all of the data to /api/heroes
             return res.json(data);
